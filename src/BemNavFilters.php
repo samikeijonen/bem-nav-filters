@@ -40,7 +40,7 @@ function nav_menu_css_class( $classes, $item, $args, $depth ) {
 	// Return custom classes.
 	return $_classes;
 }
-add_filter( 'nav_menu_css_class', __NAMESPACE__ . 'nav_menu_css_class', 10, 4 );
+add_filter( 'nav_menu_css_class', __NAMESPACE__ . '\nav_menu_css_class', 10, 4 );
 
 /**
  * Filters the WP nav menu link attributes.
@@ -88,7 +88,7 @@ function nav_menu_link_attributes( $atts, $item, $args, $depth ) {
 	// Return custom classes.
 	return $atts;
 }
-add_filter( 'nav_menu_link_attributes', __NAMESPACE__ . 'nav_menu_link_attributes', 10, 4 );
+add_filter( 'nav_menu_link_attributes', __NAMESPACE__ . '\nav_menu_link_attributes', 10, 4 );
 
 /**
  * Filters the list of CSS classes to include with each page item in the list.
@@ -118,7 +118,7 @@ function page_css_class( $css_class, $page, $depth, $args, $current_page ) {
 
 	return $css_class;
 }
-add_filter( 'page_css_class', __NAMESPACE__ . 'page_css_class', 10, 5 );
+add_filter( 'page_css_class', __NAMESPACE__ . '\page_css_class', 10, 5 );
 
 /**
  * Filters the HTML attributes applied to a page menu item's anchor element.
@@ -150,7 +150,7 @@ function page_menu_link_attributes( $atts, $page, $depth, $args, $current_page )
 
 	return $atts;
 }
-add_filter( 'page_menu_link_attributes', __NAMESPACE__ . 'page_menu_link_attributes', 10, 5 );
+add_filter( 'page_menu_link_attributes', __NAMESPACE__ . '\page_menu_link_attributes', 10, 5 );
 
 /**
  * Adds a custom class to the submenus in nav menus.
@@ -164,7 +164,7 @@ function nav_menu_submenu_css_class( $classes, $args, $depth ) {
 
 	return $classes;
 }
-add_filter( 'nav_menu_submenu_css_class', __NAMESPACE__ . 'nav_menu_submenu_css_class', 10, 3 );
+add_filter( 'nav_menu_submenu_css_class', __NAMESPACE__ . '\nav_menu_submenu_css_class', 10, 3 );
 
 /**
  * Remove hentry and add entry at the same time.
@@ -196,4 +196,4 @@ function entry_classes( $classes, $class, $post_id ) {
 
 	return $classes;
 }
-add_filter( 'post_class', __NAMESPACE__ . 'entry_classes', 10, 3 );
+add_filter( 'post_class', __NAMESPACE__ . '\entry_classes', 10, 3 );
