@@ -1,0 +1,28 @@
+{
+	"name"        : "samikeijonen/bem-nav-filters",
+	"type"        : "composer-plugin",
+	"version"     : "dev-master",
+	"description" : "Custom BEM classes for nav in WordPress.",
+	"keywords"    : [ "wordpress" ],
+	"homepage"    : "https://github.com/samikeijonen/bem-nav-filters",
+	"license"     : "GPL-2.0-or-later",
+	"authors"     : [
+		{
+			"name"     : "Sami Keijonen",
+			"email"    : "sami.keijonen@foxnet.fi",
+			"homepage" : "https://foxland.fi",
+			"role"     : "Developer"
+		}
+	],
+	"support"     : {
+		"issues" : "https://github.com/samikeijonen/bem-nav-filters/issues"
+	},
+	"autoload"    : {
+		"psr-4" : {
+			"Bem\\Nav\\Filters\\" : "src/"
+		}
+	},
+	"require"     : {
+		"php" : ">=5.6"
+	}
+}

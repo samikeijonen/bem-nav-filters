@@ -1,0 +1,5 @@
+/bundle/
+/logs/
+/node_modules/
+/vendor/
+.vscode
