@@ -7,7 +7,7 @@
  * @package BemNavFilters
  */
 
-namespace Bem\Nav\Filters;
+namespace Foxland\BemNavFilters;
 
 /**
  * Filters the CSS classes applied to a menu item's list item element.

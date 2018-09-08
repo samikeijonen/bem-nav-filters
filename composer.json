@@ -18,7 +18,7 @@
 	},
 	"autoload"    : {
 		"psr-4" : {
-			"Bem\\Nav\\Filters\\" : "src/"
+			"Foxland\\BemNavFilters\\" : "src/"
 		}
 	},
 	"require"     : {
