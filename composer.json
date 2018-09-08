@@ -1,6 +1,5 @@
 {
 	"name"        : "samikeijonen/bem-nav-filters",
-	"type"        : "composer-plugin",
 	"version"     : "dev-master",
 	"description" : "Custom BEM classes for nav in WordPress.",
 	"keywords"    : [ "wordpress" ],
