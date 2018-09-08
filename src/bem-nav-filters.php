@@ -17,7 +17,7 @@ namespace Bem\Nav\Filters;
  * @param stdClass $args    An object of wp_nav_menu() arguments.
  * @param int      $depth   Depth of menu item. Used for padding.
  */
-function bemit_nav_menu_css_class( $classes, $item, $args, $depth ) {
+function nav_menu_css_class( $classes, $item, $args, $depth ) {
 	// Get theme location, fallback for `default`.
 	$theme_location = $args->theme_location ? $args->theme_location : 'default';
 
@@ -40,7 +40,7 @@ function bemit_nav_menu_css_class( $classes, $item, $args, $depth ) {
 	// Return custom classes.
 	return $_classes;
 }
-add_filter( 'nav_menu_css_class', 'bemit_nav_menu_css_class', 10, 4 );
+add_filter( 'nav_menu_css_class', __NAMESPACE__ . 'nav_menu_css_class', 10, 4 );
 
 /**
  * Filters the WP nav menu link attributes.
@@ -58,7 +58,7 @@ add_filter( 'nav_menu_css_class', 'bemit_nav_menu_css_class', 10, 4 );
  * @param int      $depth Depth of menu item. Used for padding.
  * @return string  $attr
  */
-function bemit_nav_menu_link_attributes( $atts, $item, $args, $depth ) {
+function nav_menu_link_attributes( $atts, $item, $args, $depth ) {
 	// Get theme location, fallback for `default`.
 	$theme_location = $args->theme_location ? $args->theme_location : 'default';
 
@@ -88,7 +88,7 @@ function bemit_nav_menu_link_attributes( $atts, $item, $args, $depth ) {
 	// Return custom classes.
 	return $atts;
 }
-add_filter( 'nav_menu_link_attributes', 'bemit_nav_menu_link_attributes', 10, 4 );
+add_filter( 'nav_menu_link_attributes', __NAMESPACE__ . 'nav_menu_link_attributes', 10, 4 );
 
 /**
  * Filters the list of CSS classes to include with each page item in the list.
@@ -101,7 +101,7 @@ add_filter( 'nav_menu_link_attributes', 'bemit_nav_menu_link_attributes', 10, 4 
  * @param array    $args         An array of arguments.
  * @param int      $current_page ID of the current page.
  */
-function bemit_page_css_class( $css_class, $page, $depth, $args, $current_page ) {
+function page_css_class( $css_class, $page, $depth, $args, $current_page ) {
 	$css_class = [ 'menu__item menu__item--sub-pages' ];
 
 	if ( in_array( 'page_item_has_children', $css_class, true ) ) {
@@ -118,7 +118,7 @@ function bemit_page_css_class( $css_class, $page, $depth, $args, $current_page )
 
 	return $css_class;
 }
-add_filter( 'page_css_class', 'bemit_page_css_class', 10, 5 );
+add_filter( 'page_css_class', __NAMESPACE__ . 'page_css_class', 10, 5 );
 
 /**
  * Filters the HTML attributes applied to a page menu item's anchor element.
@@ -133,7 +133,7 @@ add_filter( 'page_css_class', 'bemit_page_css_class', 10, 5 );
  * @param array   $args         An array of arguments.
  * @param int     $current_page ID of the current page.
  */
-function bemit_page_menu_link_attributes( $atts, $page, $depth, $args, $current_page ) {
+function page_menu_link_attributes( $atts, $page, $depth, $args, $current_page ) {
 	$atts['class'] = 'menu__anchor menu__anchor--sub-pages';
 
 	if ( $current_page === $page->ID ) {
@@ -150,7 +150,7 @@ function bemit_page_menu_link_attributes( $atts, $page, $depth, $args, $current_
 
 	return $atts;
 }
-add_filter( 'page_menu_link_attributes', 'bemit_page_menu_link_attributes', 10, 5 );
+add_filter( 'page_menu_link_attributes', __NAMESPACE__ . 'page_menu_link_attributes', 10, 5 );
 
 /**
  * Adds a custom class to the submenus in nav menus.
@@ -159,12 +159,12 @@ add_filter( 'page_menu_link_attributes', 'bemit_page_menu_link_attributes', 10, 
  * @param stdClass $args    An object of `wp_nav_menu()` arguments.
  * @param int      $depth   Depth of menu item. Used for padding.
  */
-function bemit_nav_menu_submenu_css_class( $classes, $args, $depth ) {
+function nav_menu_submenu_css_class( $classes, $args, $depth ) {
 	$classes = [ 'menu__sub-menu' ];
 
 	return $classes;
 }
-add_filter( 'nav_menu_submenu_css_class', 'bemit_nav_menu_submenu_css_class', 10, 3 );
+add_filter( 'nav_menu_submenu_css_class', __NAMESPACE__ . 'nav_menu_submenu_css_class', 10, 3 );
 
 /**
  * Remove hentry and add entry at the same time.
@@ -173,7 +173,7 @@ add_filter( 'nav_menu_submenu_css_class', 'bemit_nav_menu_submenu_css_class', 10
  * @param string[] $class   An array of additional class names added to the post.
  * @param int      $post_id The post ID.
  */
-function bemit_entry_classes( $classes, $class, $post_id ) {
+function entry_classes( $classes, $class, $post_id ) {
 	if ( is_admin() ) {
 		return $classes;
 	}
@@ -196,25 +196,4 @@ function bemit_entry_classes( $classes, $class, $post_id ) {
 
 	return $classes;
 }
-add_filter( 'post_class', 'bemit_entry_classes', 10, 3 );
-
-/**
- * Adds custom classes to the array of body classes.
- *
- * @param array $classes Classes for the body element.
- * @return array
- */
-function bemit_body_classes( $classes ) {
-	// Adds a class of hfeed to non-singular pages.
-	if ( ! is_singular() ) {
-		$classes[] = 'hfeed';
-	}
-
-	// Adds a class of no-sidebar when there is no sidebar present.
-	if ( ! is_active_sidebar( 'sidebar-1' ) ) {
-		$classes[] = 'no-sidebar';
-	}
-
-	return $classes;
-}
-add_filter( 'body_class', 'bemit_body_classes' );
+add_filter( 'post_class', __NAMESPACE__ . 'entry_classes', 10, 3 );
