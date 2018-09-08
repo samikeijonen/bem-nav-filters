@@ -17,9 +17,9 @@
 		"issues" : "https://github.com/samikeijonen/bem-nav-filters/issues"
 	},
 	"autoload"    : {
-		"psr-4" : {
-			"Foxland\\BemNavFilters\\" : "src/"
-		}
+		"files" : [
+			"src/bem-nav-filters.php"
+		]
 	},
 	"require"     : {
 		"php" : ">=5.6"
