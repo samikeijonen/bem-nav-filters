@@ -23,13 +23,13 @@ class Filters {
 	 * @access public
 	 * @return void
 	 */
-	public static function init() {
-		add_filter( 'nav_menu_css_class', [ __CLASS__, 'nav_menu_css_class' ], 10, 4 );
-		add_filter( 'nav_menu_link_attributes', [ __CLASS__, 'nav_menu_link_attributes' ], 10, 4 );
-		add_filter( 'page_css_class', [ __CLASS__, 'page_css_class' ], 10, 5 );
-		add_filter( 'page_menu_link_attributes', [ __CLASS__, 'page_menu_link_attributes' ], 10, 5 );
-		add_filter( 'nav_menu_submenu_css_class', [ __CLASS__, 'nav_menu_submenu_css_class' ], 10, 3 );
-		add_filter( 'post_class', [ __CLASS__, 'entry_classes' ], 10, 3 );
+	public function init() {
+		add_filter( 'nav_menu_css_class', [ $this, 'nav_menu_css_class' ], 10, 4 );
+		add_filter( 'nav_menu_link_attributes', [ $this, 'nav_menu_link_attributes' ], 10, 4 );
+		add_filter( 'page_css_class', [ $this, 'page_css_class' ], 10, 5 );
+		add_filter( 'page_menu_link_attributes', [ $this, 'page_menu_link_attributes' ], 10, 5 );
+		add_filter( 'nav_menu_submenu_css_class', [ $this, 'nav_menu_submenu_css_class' ], 10, 3 );
+		add_filter( 'post_class', [ $this, 'entry_classes' ], 10, 3 );
 	}
 
 	/**

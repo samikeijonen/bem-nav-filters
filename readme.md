@@ -39,5 +39,6 @@ Then init filters by this code in `functions.php`:
 
 ```php
 // Init BEM nav filters.
-\Foxland\BemNav\Filters::init();
+$filters = new \Foxland\BemNav\Filters();
+$filters->init();
 ```
