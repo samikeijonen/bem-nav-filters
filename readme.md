@@ -21,7 +21,7 @@ cd path/to/wp-content/themes/<your-theme-name>
 Then, use Composer to install the package.
 
 ```bash
-composer samikeijonen/bem-nav-filters
+composer require samikeijonen/bem-nav-filters
 ```
 
 If you're not already including the Composer autoload file for your theme
