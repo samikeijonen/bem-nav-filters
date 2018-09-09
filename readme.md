@@ -34,3 +34,10 @@ if ( file_exists( get_parent_theme_file_path( 'vendor/autoload.php' ) ) ) {
 	require_once( get_parent_theme_file_path( 'vendor/autoload.php' ) );
 }
 ```
+
+Then init filters by this code in `functions.php`:
+
+```php
+// Init BEM nav filters.
+\Foxland\BemNav\Filters::init();
+```
