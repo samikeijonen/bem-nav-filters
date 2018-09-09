@@ -1,6 +1,6 @@
 {
 	"name"        : "samikeijonen/bem-nav-filters",
-	"version"     : "1.0.0",
+	"version"     : "1.1.0",
 	"description" : "Custom BEM classes for nav in WordPress.",
 	"keywords"    : [ "wordpress" ],
 	"homepage"    : "https://github.com/samikeijonen/bem-nav-filters",
