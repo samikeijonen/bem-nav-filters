@@ -24,6 +24,8 @@ Then, use Composer to install the package.
 composer require samikeijonen/bem-nav-filters
 ```
 
+## Usage
+
 If you're not already including the Composer autoload file for your theme
 you'll want something like the following bit of code in your theme's `functions.php` to autoload this package (and any others).
 
